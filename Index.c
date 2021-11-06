@@ -1,59 +1,95 @@
-#define _CRT_SECURE_NO_WARNINGS // для возможности использования scanf
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-#include <stdlib.h> // для перехода на русский язык
-#include <stdio.h> //Стринг
-#include <stdbool.h>
+#include <stdlib.h>
 #include <math.h>
 
+int plus(int a, int b);
+
+int minus(int a, int b);
+int unm(int a, int b);
+int delit(int a, int b);
 
 int main()
 {
-    int a;
-    int b;
-    int res;
-    char znak;
+	int x, y;
+	char znak;
 
-    //int arr[] = {5, -67, 0, -2, 6};
-    //int min = arr[0];
-    //for(int i = 0; i < 5; i++){
-        //if(arr[i] < min)
-            //min = arr[i];
-    //}
-    //printf("%d", min);
+	printf("(+, -, *, /) \n>");
+	scanf("%c", &znak);
+	
+	if(znak == '+')
+	{
+		printf("1 number \n>");
+		scanf("%d", &x);
 
-   
-    printf("Введите 1 число >");
-    scanf("%d", &a);
-    printf("Знак (+ - * / ^ - степень) >");
-    scanf("%s", &znak);
-    printf("Введите 2 число >");
-    scanf("%d", &b);
+		printf("2 number \n>");
+		scanf("%d", &y);
 
-    if(znak == '^'){
-        int i;
-        for(i = 0; i == b; i++){
-            res = a * a;
-            printf("%d", res);
-        }
-    }
-    if(znak == '-'){
-        res = a - b;
-        printf("%d", res);
-    }
-    if(znak == '*'){
-        res = a * b;
-        printf("%d", res);
-    }
-    if(znak == '+'){
-        res = a + b;
-        printf("%d", res);
-    }
-    if(znak == '/'){
-        res = a / b;
-        printf("%d", res);
-    } 
-    else
-        printf("ERROR");
+		plus(x, y);
+	}
+	if(znak == '-')
+	{
+		printf("1 number \n>");
+		scanf("%d", &x);
 
-    return 0;
+		printf("2 number \n>");
+		scanf("%d", &y);
+
+		minus(x, y);
+	}
+	if(znak == '*')
+	{
+		printf("1 number \n>");
+		scanf("%d", &x);
+
+		printf("2 number \n>");
+		scanf("%d", &y);
+
+		unm(x, y);
+	}
+	if(znak == '/')
+	{
+		printf("1 number \n>");
+		scanf("%d", &x);
+
+		printf("2 number \n>");
+		scanf("%d", &y);
+
+		delit(x, y);
+	}
+	return 0;
+}
+
+int plus(int a, int b)
+{
+	int res = a + b;
+
+	printf("%d + %d = %d\n",a, b ,res);
+	
+	return 0;
+}
+int minus(int a, int b)
+{
+	int res = a - b;
+
+	printf("%d - %d = %d", a, b, res);
+
+	return 0;
+}
+int delit(int a, int b)
+{
+	int res = a / b;
+
+	printf("%d / %d = %d", a, b, res);
+
+	return 0;
+}
+int unm(int a, int b)
+{
+	int res;
+	res = a * b;
+
+	printf("%d * %d = %d", a, b, res);
+
+	return res;
 }
